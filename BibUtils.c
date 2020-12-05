@@ -43,12 +43,11 @@ void InicializaMatriz(int *Matriz, int linhas, int colunas, int escolha)
 
 //Andamento do jogo
         
-int verificacao(int *Matriz, int linhas, int colunas)
+int verificacao(int *Matriz, int linha, int coluna)
 {
-    int vizinhos = 0;
     
-    for(int i = 0; i < 900; i++)
-    {
+        int vizinhos = 0, i = linha*30+coluna;
+        
         if(i == 0)
         {
             if(Matriz[i+1] == 1)
@@ -60,13 +59,30 @@ int verificacao(int *Matriz, int linhas, int colunas)
             if(Matriz[i+29] == 1)
                 vizinhos++;
 
-            if(Matriz[869] == 1)
+            if(Matriz[870] == 1)
                 vizinhos++;
         
             return vizinhos;
         }
         
-        if(i == 869)
+        if(i == 29)
+        {
+            if(Matriz[0] == 1)
+                vizinhos++;
+
+            if(Matriz[i+30] == 1)
+                vizinhos++;
+            
+            if(Matriz[i-1] == 1)
+                vizinhos++;
+
+            if(Matriz[899] == 1)
+                vizinhos++;
+        
+            return vizinhos;
+        }
+        
+        if(i == 870)
         {
             if(Matriz[i+1] == 1)
                 vizinhos++;
@@ -82,8 +98,24 @@ int verificacao(int *Matriz, int linhas, int colunas)
         
             return vizinhos;
         }
+        if(i == 899)
+        {
+            if(Matriz[i-1] == 1)
+                vizinhos++;
 
-        if(i % 30 == 0 && i > 29 && i < 869)
+            if(Matriz[29] == 1)
+                vizinhos++;
+            
+            if(Matriz[i-29] == 1)
+                vizinhos++;
+
+            if(Matriz[879] == 1)
+                vizinhos++;
+        
+            return vizinhos;
+        }
+        
+        if(i % 30 == 0 && i > 29 && i < 870)
         {
             if(Matriz[i+1] == 1)
                 vizinhos++;
@@ -100,11 +132,44 @@ int verificacao(int *Matriz, int linhas, int colunas)
             return vizinhos;            
         }
         
-        
+        if(i % 30 == 29 && i > 29 && i < 870)
+        {
+            if(Matriz[i-1] == 1)
+                vizinhos++;
 
-    }
+            if(Matriz[i+30] == 1)
+                vizinhos++;
+
+            if(Matriz[i-30] == 1);
+                vizinhos++;
+            
+            if(Matriz[i-29] == 1);
+                vizinhos++;
+            
+            return vizinhos;            
+        }
+
+        if(i % 30 != 0 && i % 30 != 29 && i > 29 && i < 870)
+        {
+            if(Matriz[i-1] == 1)
+                vizinhos++;
+
+            if(Matriz[i+1] == 1)
+                vizinhos++;
+            
+            if(Matriz[i+30] == 1)
+                vizinhos++;
+        
+            if(Matriz[i-30] == 1)
+                vizinhos++;
+
+            return vizinhos;
+        }
+
 
 }
+
+
 
 //Saída de dados
 

@@ -9,7 +9,7 @@ void imprimeMatriz(int *Matriz, int linhas, int colunas);
 
 int verificacao(int *Matriz, int linhas, int colunas);
 
-void simulacaoDoJogo(int *Matriz, int geracoes);
+void simulacaoDoJogo(int *Matriz, int linhas, int colunas, int geracoes);
 
 
 
