@@ -3,11 +3,13 @@
 
 void Menu();
 
-void InicializaMatriz(int *Matriz, int escolha);
+void InicializaMatriz(int *Matriz, int linhas, int colunas, int escolha);
 
-void imprime(int *Matriz);
+void imprimeMatriz(int *Matriz, int linhas, int colunas);
 
+int verificacao(int *Matriz, int linhas, int colunas);
 
+void simulacaoDoJogo(int *Matriz, int linhas, int colunas, int geracoes);
 
 
 
