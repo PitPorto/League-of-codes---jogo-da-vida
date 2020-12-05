@@ -28,10 +28,10 @@ void limpatela()
 void pausa()
 {
     #ifdef OS_WINDOWS
-        system("Sleep(1*1000");
+        system("Sleep(0.5*1000");
 
     #else
-        system("sleep 1");
+        system("sleep 0.5");
     
     #endif
 
