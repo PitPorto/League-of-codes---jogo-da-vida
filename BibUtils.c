@@ -46,154 +46,205 @@ void InicializaMatriz(int *Matriz, int linhas, int colunas, int escolha)
 int verificacaoVizinhos(int *Matriz, int posicao)
 {
     
-        int vizinhos = 0, i = posicao;
+        int vizinhos = 0;
         
-        if(i == 0)
-        {
-            if(Matriz[i+1] == 1)
+        if(posicao == 0)
+        {   
+            if(Matriz[1] == 1)
                 vizinhos++;
 
-            if(Matriz[i+30] == 1)
+            if(Matriz[30] == 1)
                 vizinhos++;
             
-            if(Matriz[i+29] == 1)
+            if(Matriz[31] == 1)
                 vizinhos++;
 
-            if(Matriz[870] == 1)
-                vizinhos++;
-        
-            return vizinhos;
         }
         
-        if(i == 29)
-        {
-            if(Matriz[0] == 1)
-                vizinhos++;
-
-            if(Matriz[i+30] == 1)
+        if(posicao == 29)
+        {   
+            if(Matriz[59] == 1)
                 vizinhos++;
             
-            if(Matriz[i-1] == 1)
+            if(Matriz[28] == 1)
                 vizinhos++;
-
-            if(Matriz[899] == 1)
-                vizinhos++;
-        
-            return vizinhos;
+            
+            if(Matriz[58] == 1)
+                vizinhos++;    
+            
         }
         
-        if(i == 870)
-        {
-            if(Matriz[i+1] == 1)
+        if(posicao == 870)
+        {   
+            if(Matriz[840] == 1)
                 vizinhos++;
 
-            if(Matriz[i+30] == 1)
-                vizinhos++;
+            if(Matriz[871] == 1)
+                vizinhos++;    
             
-            if(Matriz[i+29] == 1)
+            if(Matriz[872] == 1)
                 vizinhos++;
 
-            if(Matriz[0] == 1)
-                vizinhos++;
-        
-            return vizinhos;
-        }
-        if(i == 899)
-        {
-            if(Matriz[i-1] == 1)
-                vizinhos++;
-
-            if(Matriz[29] == 1)
-                vizinhos++;
-            
-            if(Matriz[i-29] == 1)
-                vizinhos++;
-
-            if(Matriz[879] == 1)
-                vizinhos++;
-        
-            return vizinhos;
-        }
-        
-        if(i % 30 == 0 && i > 29 && i < 870)
-        {
-            if(Matriz[i+1] == 1)
-                vizinhos++;
-
-            if(Matriz[i-30] == 1)
-                vizinhos++;
-
-            if(Matriz[i+30] == 1);
-                vizinhos++;
-            
-            if(Matriz[i+29] == 1);
-                vizinhos++;
-            
-            return vizinhos;            
-        }
-        
-        if(i % 30 == 29 && i > 29 && i < 870)
-        {
-            if(Matriz[i-1] == 1)
-                vizinhos++;
-
-            if(Matriz[i+30] == 1)
-                vizinhos++;
-
-            if(Matriz[i-30] == 1);
-                vizinhos++;
-            
-            if(Matriz[i-29] == 1);
-                vizinhos++;
-            
-            return vizinhos;            
         }
 
-        if(i % 30 != 0 && i % 30 != 29 && i > 29 && i < 870)
-        {
-            if(Matriz[i-1] == 1)
+        if(posicao == 899)
+        {   
+            if(Matriz[868] == 1)
                 vizinhos++;
 
-            if(Matriz[i+1] == 1)
+            if(Matriz[869] == 1)
                 vizinhos++;
             
-            if(Matriz[i+30] == 1)
+            if(Matriz[898] == 1)
                 vizinhos++;
-        
-            if(Matriz[i-30] == 1)
+        }
+
+        if(posicao % 30 == 0 && posicao != 0)
+        {
+            if(Matriz[posicao+1] == 1)
                 vizinhos++;
 
-            return vizinhos;
+            if(Matriz[posicao-29] == 1)
+                vizinhos++;
+
+            if(Matriz[posicao-30] == 1)
+                vizinhos++;
+            
+            if(Matriz[posicao+30] == 1)
+                vizinhos++;
+            
+            if(Matriz[posicao+31] == 1)
+                vizinhos++;
         }
+
+        if(posicao % 30 == 29 && posicao != 29)
+        {
+            if(Matriz[posicao-1] == 1)
+                vizinhos++;
+
+            if(Matriz[posicao-30] == 1)
+                vizinhos++;
+            
+            if(Matriz[posicao-31] == 1)
+                vizinhos++;
+
+
+            if(Matriz[posicao+29] == 1)
+                vizinhos++;
+
+            if(Matriz[posicao+30] == 1)
+                vizinhos++;
+            
+        }
+        
+        if(posicao > 0 && posicao < 30)
+        {
+            if(Matriz[posicao-1] == 1)
+                vizinhos++;
+
+            if(Matriz[posicao+1] == 1)
+                vizinhos++;
+            
+            if(Matriz[posicao+29] == 1)
+                vizinhos++;
+
+            if(Matriz[posicao+30] == 1)
+                vizinhos++;
+            
+            if(Matriz[posicao+31] == 1)
+                vizinhos++;
+            
+        }
+ 
+        if(posicao > 870 && posicao < 900)
+        {
+            if(Matriz[posicao-1] == 1)
+                vizinhos++;
+
+            if(Matriz[posicao+1] == 1)
+                vizinhos++;
+
+            if(Matriz[posicao-30] == 1)
+                vizinhos++;
+
+            if(Matriz[posicao-29] == 1)
+                vizinhos++;
+
+            if(Matriz[posicao-31] == 1)
+                vizinhos++;
+
+        }
+
+        if(posicao % 30 != 0 && posicao % 30 != 29 && posicao > 29 && posicao < 869)
+        {
+            if(Matriz[posicao+1] == 1)
+                vizinhos++;
+
+            if(Matriz[posicao-1] == 1)
+                vizinhos++;
+             
+            if(Matriz[posicao+29] == 1)
+                vizinhos++;
+
+            if(Matriz[posicao+30] == 1)
+                vizinhos++;
+            
+            if(Matriz[posicao+31] == 1)
+                vizinhos++;
+            
+            if(Matriz[posicao-30] == 1)
+                vizinhos++;
+        
+            if(Matriz[posicao-31] == 1)
+                vizinhos++;
+
+            if(Matriz[posicao-29] == 1)
+                vizinhos++;
+        }
+
+        return vizinhos;
 }
 
-void CicloVidaCelula(int *Matriz, int posicao)
+void CicloVidaCelula(int *Matriz,int *CopiaMatriz, int posicao)
 {
-    if(verificacaoVizinhos(Matriz, posicao) < 2 && Matriz[posicao] == 1)
-      Matriz[posicao] = 0;
-    else if(verificacaoVizinhos(Matriz, posicao) > 3 && Matriz[posicao] == 1)
+    if(verificacaoVizinhos(CopiaMatriz, posicao) < 2)
         Matriz[posicao] = 0;
-
-    else if(verificacaoVizinhos(Matriz, posicao) == 2 || verificacaoVizinhos(Matriz, posicao) == 3 && Matriz[posicao] == 1)
+    
+    if(verificacaoVizinhos(CopiaMatriz, posicao) > 3 && Matriz[posicao] == 1)
+        Matriz[posicao] = 0;
+    
+    if((verificacaoVizinhos(CopiaMatriz, posicao) == 2 || verificacaoVizinhos(CopiaMatriz, posicao) == 3) && Matriz[posicao] == 1)
         Matriz[posicao] = 1;
-
-    else if(verificacaoVizinhos(Matriz, posicao) == 3 && Matriz[posicao] == 0)
+    
+    if(verificacaoVizinhos(CopiaMatriz, posicao) == 3 && Matriz[posicao] == 0)
         Matriz[posicao] = 1;
 
 }
 
-void simulacaoDoJogo(int *Matriz, int linhas, int colunas, int geracoes)
+void simulacaoDoJogo(int *Matriz, int *CopiaMatriz, int linhas, int colunas, int geracoes)
 {
     for(int n = 0; n < geracoes; n++)
     {
+        imprimeMatriz(Matriz, linhas, colunas);
+
+        printf("---------------------------\n");
         for(int i = 0; i < linhas * colunas; i++)
         {
-            CicloVidaCelula(Matriz, i);
+            CicloVidaCelula(Matriz, CopiaMatriz, i);
         }
+        imprimeMatriz(Matriz, linhas, colunas);
+        printf("---------------------------\n");
+        CopiandoMatriz(Matriz, CopiaMatriz, linhas * colunas);
     }
 }
 
-//Saída de dados
+void CopiandoMatriz(int *MatrizOrig, int *CopiaMatriz, int tam)
+{
+    for(int i = 0; i < tam; i++)
+    {
+        CopiaMatriz[i] = MatrizOrig[i];
+    }
+}
 
 void imprimeMatriz(int *Matriz, int linhas, int colunas)
 {
