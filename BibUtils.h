@@ -5,7 +5,7 @@ void Menu();
 
 void InicializaMatriz(int *Matriz, int escolha);
 
-void imprime(int *Matriz);
+void imprimeMatriz(int *Matriz);
 
 
 

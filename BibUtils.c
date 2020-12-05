@@ -39,7 +39,7 @@ void InicializaMatriz(int *Matriz, int escolha)
     }
 }
 
-void imprime(int *Matriz)
+void imprimeMatriz(int *Matriz)
 {
     for(int i = 0; i < 900; i++)
     {

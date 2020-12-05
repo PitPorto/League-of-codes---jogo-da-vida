@@ -9,11 +9,12 @@ int main(){
     
     int escolha, matriz[900] = {0};
     
+    
     Menu();
     scanf("%d", &escolha);
 
     InicializaMatriz(matriz, escolha); 
-    imprime(matriz);
+    imprimeMatriz(matriz);
 
     return 0;
 }
