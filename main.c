@@ -17,9 +17,13 @@ int main(){
     
     printf("Digite o número de gerações que você deseja simular:\n");
     scanf("%d", &geracoes);
-    
-    
+   
     imprimeMatriz(matriz, L, C);
+    printf("\n"); 
+
+    simulacaoDoJogo(matriz, L, C, geracoes);
     
+    imprimeMatriz(matriz, L, C); 
+
     return 0;
 }

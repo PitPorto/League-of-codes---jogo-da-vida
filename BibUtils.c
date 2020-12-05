@@ -43,10 +43,10 @@ void InicializaMatriz(int *Matriz, int linhas, int colunas, int escolha)
 
 //Andamento do jogo
         
-int verificacao(int *Matriz, int linha, int coluna)
+int verificacaoVizinhos(int *Matriz, int posicao)
 {
     
-        int vizinhos = 0, i = linha*30+coluna;
+        int vizinhos = 0, i = posicao;
         
         if(i == 0)
         {
@@ -165,28 +165,49 @@ int verificacao(int *Matriz, int linha, int coluna)
 
             return vizinhos;
         }
+}
 
+void CicloVidaCelula(int *Matriz, int posicao)
+{
+    if(verificacaoVizinhos(Matriz, posicao) < 2 && Matriz[posicao] == 1)
+      Matriz[posicao] = 0;
+    else if(verificacaoVizinhos(Matriz, posicao) > 3 && Matriz[posicao] == 1)
+        Matriz[posicao] = 0;
+
+    else if(verificacaoVizinhos(Matriz, posicao) == 2 || verificacaoVizinhos(Matriz, posicao) == 3 && Matriz[posicao] == 1)
+        Matriz[posicao] = 1;
+
+    else if(verificacaoVizinhos(Matriz, posicao) == 3 && Matriz[posicao] == 0)
+        Matriz[posicao] = 1;
 
 }
 
-
+void simulacaoDoJogo(int *Matriz, int linhas, int colunas, int geracoes)
+{
+    for(int n = 0; n < geracoes; n++)
+    {
+        for(int i = 0; i < linhas * colunas; i++)
+        {
+            CicloVidaCelula(Matriz, i);
+        }
+    }
+}
 
 //Saída de dados
 
 void imprimeMatriz(int *Matriz, int linhas, int colunas)
 {
-    for(int i = 0; i < linhas * colunas; i++)
+    for(int i = 0; i < linhas; i++)
     {
-        if(Matriz[i] == 1)
-            printf("O");
-        else
-            printf(" ");
-
-
-        if(i % colunas == 0)
-            printf("\n");
+        for(int j = 0; j < colunas; j++)
+        { 
+            if(Matriz[i*colunas+j] == 1)
+                printf("O");
+            else
+                printf(" ");
+        }
+        printf("\n");
     }
-    printf("\n");
 }
 
 
