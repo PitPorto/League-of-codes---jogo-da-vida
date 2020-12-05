@@ -9,9 +9,11 @@ void imprimeMatriz(int *Matriz, int linhas, int colunas);
 
 int verificacaoVizinhos(int *Matriz, int posicao);
 
-void CicloVidaCelula(int *Matriz,int posicao);
+void CopiandoMatriz(int *MatrizOrig, int *CopiaMatriz, int tam);
 
-void simulacaoDoJogo(int *Matriz, int linhas, int colunas, int geracoes);
+void CicloVidaCelula(int *Matriz,int *CopiaMatriz, int posicao);
+
+void simulacaoDoJogo(int *Matriz, int *CopiaMatriz, int linhas, int colunas, int geracoes);
 
 
 
