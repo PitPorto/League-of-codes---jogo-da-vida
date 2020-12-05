@@ -3,8 +3,9 @@
 
 void Menu();
 
+void InicializaMatriz(int *Matriz, int escolha);
 
-int InicializaJogo(int opc);
+void imprime(int *Matriz);
 
 
 
