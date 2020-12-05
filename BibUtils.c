@@ -52,6 +52,7 @@ void imprime(int *Matriz)
         if(i % 30 == 0)
             printf("\n");
     }
+    printf("\n");
 }
         
 
