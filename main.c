@@ -14,7 +14,6 @@ int main(){
     scanf("%d", &escolha);
 
     InicializaMatriz(matriz, L, C, escolha); 
-    CopiandoMatriz(matriz, MatrizCopia, L * C);
 
     printf("Digite o número de gerações que você deseja simular:\n");
     scanf("%d", &geracoes);
