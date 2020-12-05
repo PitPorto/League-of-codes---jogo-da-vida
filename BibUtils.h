@@ -15,7 +15,9 @@ void CicloVidaCelula(int *Matriz,int *CopiaMatriz, int posicao);
 
 void simulacaoDoJogo(int *Matriz, int *CopiaMatriz, int linhas, int colunas, int geracoes);
 
+void limpatela();
 
+void pausa();
 
 
 

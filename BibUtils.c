@@ -3,6 +3,40 @@
 #include <time.h>
 #include "BibUtils.h"
 
+#ifdef __unix__
+    #include <unistd.h>
+    #include <stdlib.h>
+
+#elif defined(_WIN32) || defined(WIN32)
+    #define OS_WINDOWS
+    
+    #include <windows.h>
+
+#endif
+
+void limpatela()
+{
+    #ifdef OS_WINDOWS
+        system("cls");
+
+    #else
+        system("clear");
+    
+    #endif
+}
+
+void pausa()
+{
+    #ifdef OS_WINDOWS
+        system("Sleep(1*1000");
+
+    #else
+        system("sleep 1");
+    
+    #endif
+
+}
+
 
 void Menu()
 {
@@ -223,7 +257,7 @@ void simulacaoDoJogo(int *Matriz, int *CopiaMatriz, int linhas, int colunas, int
 {
     for(int n = 0; n < geracoes; n++)
     {
-        //Limpa Tela
+        limpatela();
 
         CopiandoMatriz(Matriz, CopiaMatriz, linhas * colunas);
         
@@ -233,7 +267,7 @@ void simulacaoDoJogo(int *Matriz, int *CopiaMatriz, int linhas, int colunas, int
         }
 
         imprimeMatriz(Matriz, linhas, colunas);
-        //Pausa
+        pausa();
         
 
     }
