@@ -3,7 +3,6 @@
 #include <time.h>
 #include "BibUtils.h"
 
-//Funções de entrada de dados
 
 void Menu()
 {
@@ -41,7 +40,6 @@ void InicializaMatriz(int *Matriz, int linhas, int colunas, int escolha)
     }
 }
 
-//Andamento do jogo
         
 int verificacaoVizinhos(int *Matriz, int posicao)
 {
@@ -205,7 +203,7 @@ int verificacaoVizinhos(int *Matriz, int posicao)
         return vizinhos;
 }
 
-void CicloVidaCelula(int *Matriz,int *CopiaMatriz, int posicao)
+void CicloVidaCelula(int *Matriz, int *CopiaMatriz, int posicao)
 {
     if(verificacaoVizinhos(CopiaMatriz, posicao) < 2)
         Matriz[posicao] = 0;
@@ -225,16 +223,19 @@ void simulacaoDoJogo(int *Matriz, int *CopiaMatriz, int linhas, int colunas, int
 {
     for(int n = 0; n < geracoes; n++)
     {
-        imprimeMatriz(Matriz, linhas, colunas);
+        //Limpa Tela
 
-        printf("---------------------------\n");
+        CopiandoMatriz(Matriz, CopiaMatriz, linhas * colunas);
+        
         for(int i = 0; i < linhas * colunas; i++)
         {
             CicloVidaCelula(Matriz, CopiaMatriz, i);
         }
+
         imprimeMatriz(Matriz, linhas, colunas);
-        printf("---------------------------\n");
-        CopiandoMatriz(Matriz, CopiaMatriz, linhas * colunas);
+        //Pausa
+        
+
     }
 }
 
